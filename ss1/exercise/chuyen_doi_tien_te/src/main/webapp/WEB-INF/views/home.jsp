@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
         <label>VNĐ</label>
-        <h5>${total}</h5>
+        <h5>${result}</h5>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
