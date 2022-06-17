@@ -1,8 +1,7 @@
-package com.codegym.control;
+package com.codegym.controller;
 
 import com.codegym.model.Medical;
 import com.codegym.service.IMedicalService;
-import com.codegym.service.MedicalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -4,16 +4,19 @@ import com.codegym.model.Setting;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SettingService {
+public class SettingService implements ISettingService {
     public static Setting setting;
+
     static {
-        setting = new Setting("viet nam",15,false,"trung tran");
+        setting = new Setting("viet nam", 15, false, "trung tran");
     }
-    public Setting  displaySetting(){
+
+    public Setting displaySetting() {
 
         return setting;
     }
-    public Setting saveSetting(Setting setting1){
+
+    public Setting saveSetting(Setting setting1) {
         setting.setLanguage(setting1.getLanguage());
         setting.setPageSize(setting1.getPageSize());
         setting.setSpamsFilter(setting1.isSpamsFilter());
