@@ -1,6 +1,8 @@
 package com.codegym.service;
 
 import com.codegym.model.Product;
+import com.codegym.repository.IProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,54 +12,33 @@ import java.util.Map;
 
 @Service
 public class ProductService implements IProductService {
-    public static Map<Integer, Product> productMap;
-
-    static {
-        productMap = new HashMap<Integer, Product>();
-        productMap.put(1, new Product(1, "iphone5", 1330000, "99%", "USA"));
-        productMap.put(2, new Product(2, "iphone6", 1330000, "99%", "USA"));
-        productMap.put(3, new Product(3, "iphone7", 1330000, "99%", "USA"));
-        productMap.put(4, new Product(4, "iphone8", 1330000, "99%", "USA"));
-        productMap.put(5, new Product(5, "iphone13", 1530000, "99%", "USA"));
-    }
+    @Autowired
+    private IProductRepository iProductRepository;
 
     public List<Product> displayProduct() {
-        return new ArrayList<>(productMap.values());
+        return iProductRepository.findAll();
     }
 
     public void creat(Product product) {
-        productMap.put(product.getIdProduct(), product);
+        iProductRepository.creatProduct(product);
     }
 
-    public void creat1(Product product) {
-        productMap.put((productMap.size() + 1), product);
-
-
-    }
-
+    @Override
     public Product finProductById(int id) {
-        Product product = productMap.get(id);
-        return product;
+        return iProductRepository.findById(id);
     }
 
-    public int getLastId() {
-        List<Product> productList = displayProduct();
-        int id = productList.get(productList.size() - 1).getIdProduct() + 1;
-        return id;
+    @Override
+    public void editProduct(Product product) {
+        iProductRepository.editProduct(product);
     }
 
-    public void deleteProduct(int id) {
-        productMap.remove(id);
+    public void deleteProduct(Product product) {
+        iProductRepository.delete(product);
     }
 
     public List<Product> findProductByName(String name) {
-        List<Product> productList = new ArrayList<>();
-        for (Map.Entry<Integer, Product> tem : productMap.entrySet()) {
-            if (tem.getValue().getNameProduct().contains(name)) {
-                productList.add(tem.getValue());
-            }
-        }
-        return productList;
+        return iProductRepository.search(name);
     }
 
 }

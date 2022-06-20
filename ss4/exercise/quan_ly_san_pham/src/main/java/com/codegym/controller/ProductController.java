@@ -8,9 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class ProductController {
@@ -19,7 +17,8 @@ public class ProductController {
 
     @GetMapping("/")
     public String displayProduct(Model model) {
-        model.addAttribute("listProduct", iProductService.displayProduct());
+        List<Product> productList = iProductService.displayProduct();
+        model.addAttribute("listProduct", productList);
         return "home";
     }
 
@@ -32,14 +31,13 @@ public class ProductController {
 
     @PostMapping("/edit")
     public String editProduct(Product product1) {
-        iProductService.creat(product1);
+        iProductService.editProduct(product1);
         return "redirect:/";
     }
 
     @GetMapping("/creat")
     public String formCreatProduct(Model model) {
-        int id = iProductService.getLastId();
-        model.addAttribute("product", new Product(id));
+        model.addAttribute("product", new Product());
         return "creat";
     }
 
@@ -57,15 +55,17 @@ public class ProductController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable("id") int id,RedirectAttributes redirectAttributes) {
-        iProductService.deleteProduct(id);
-        redirectAttributes.addFlashAttribute("mes","Delete successfully");
+    public String deleteProduct(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+        Product product = iProductService.finProductById(id);
+        iProductService.deleteProduct(product);
+        redirectAttributes.addFlashAttribute("mes", "Delete successfully");
         return "redirect:/";
     }
+
     @GetMapping("/search")
-    public String searchProduct(@RequestParam("search") String name, Model model){
+    public String searchProduct(@RequestParam("search") String name, Model model) {
         List<Product> list = iProductService.findProductByName(name);
-        model.addAttribute("listProduct",list);
+        model.addAttribute("listProduct", list);
         return "home";
     }
 

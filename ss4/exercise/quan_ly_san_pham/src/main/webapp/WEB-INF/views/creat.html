@@ -12,11 +12,6 @@
 <div class="container">
     <form th:action="@{/creat}" method="post" th:object="${product}">
         <div class="form-group">
-            <label for="exampleInputEmail0">Id product</label>
-            <input type="text" class="form-control" id="exampleInputEmail0" aria-describedby="emailHelp"
-                   th:field="*{idProduct}" readonly>
-        </div>
-        <div class="form-group">
             <label for="exampleInputPassword1">Name</label>
             <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{nameProduct}">
         </div>

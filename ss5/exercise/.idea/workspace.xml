@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="96f689a6-256a-4b20-b2af-6fa2c0bea5ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../ss1/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss1/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/build/classes/java/main/controller_all/controller/CaculatorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/build/libs/may_tinh-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/java/controller_all/controller/CaculatorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/java/controller_all/service/CalculatorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/java/controller_all/service/ICalculatorService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss2/may_tinh/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/form_data/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/form_data/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/java/com/codegym/cotroller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/java/com/codegym/cotroller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/java/com/codegym/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/java/com/codegym/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/webapp/WEB-INF/views/creat.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/webapp/WEB-INF/views/creat.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/form_data/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/model/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/login/src/main/java/com/codegym/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/login/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/login/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss3/practice/login/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss3/practice/login/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/exercise/quan_ly_san_pham/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/exercise/quan_ly_san_pham/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/creat.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/creat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss4/practice/quan_ly_khach_hang/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2ApAHjfTKSxk0n7GW1AK5bhURhP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ung_dung_nghe_nhac" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96f689a6-256a-4b20-b2af-6fa2c0bea5ca" name="Default Changelist" comment="" />
+      <created>1655696066165</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655696066165</updated>
+      <workItem from="1655696074636" duration="231000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1655696266204">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1655696266204" />
+  </component>
+</project>
