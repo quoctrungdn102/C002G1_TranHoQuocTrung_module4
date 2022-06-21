@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -55,8 +56,8 @@ public class BlogController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteBlog(@PathVariable("id") Integer id) {
+    @GetMapping("/delete")
+    public String deleteBlog(@RequestParam("idBlog") Integer id) {
         iBlogService.delete(id);
         return "redirect:/";
     }
