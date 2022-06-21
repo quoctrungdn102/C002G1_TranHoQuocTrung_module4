@@ -41,16 +41,18 @@ public class ApplicationController {
         model.addAttribute("application", application);
         return "edit";
     }
+
     @PostMapping("/edit")
-    public String edit(Application application){
+    public String edit(Application application) {
         iApplicationService.editSong(application);
         return "redirect:/";
     }
-@GetMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Integer id){
-       Application application= iApplicationService.findById(id);
-       iApplicationService.delete(application);
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        Application application = iApplicationService.findById(id);
+        iApplicationService.delete(application);
         return "redirect:/";
-}
+    }
 
 }
