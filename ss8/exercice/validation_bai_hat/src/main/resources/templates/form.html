@@ -9,38 +9,25 @@
 <body>
 <div class="container">
     <h3 style="align-items: center"> Đăng ký</h3>
-    <form th:action="@{/create}" method="post" th:object="${form}">
+    <form th:action="@{/create}" method="post" th:object="${song}">
         <div class="form-group">
-            <label for="exampleInputEmail11">First name</label>
+            <label for="exampleInputEmail11">Name</label>
             <input type="text" class="form-control" id="exampleInputEmail11" aria-describedby="emailHelp"
-                   placeholder="Enter email" th:field="*{firstName}">
-            <label style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></label>
+                   placeholder="Enter email" th:field="*{nameSong}">
+            <label style="color: #ff0000" th:if="${#fields.hasErrors('nameSong')}" th:errors="*{nameSong}"></label>
         </div>
 
         <div class="form-group">
-            <label for="exampleInputEmail14">Last Name</label>
+            <label for="exampleInputEmail14"> Name Singer</label>
             <input type="text" class="form-control" id="exampleInputEmail14" aria-describedby="emailHelp"
-                   placeholder="Enter email" th:field="*{lastName}">
-            <label style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></label>
+                   placeholder="Enter email" th:field="*{singer}">
+            <label style="color: red" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></label>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail15">Phone</label>
+            <label for="exampleInputEmail15">category</label>
             <input type="text" class="form-control" id="exampleInputEmail15" aria-describedby="emailHelp"
-                   placeholder="Enter email" th:field="*{phone}">
-            <label style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></label>
-
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail17"> age</label>
-            <input type="text" class="form-control" id="exampleInputEmail17" aria-describedby="emailHelp"
-                   placeholder="Enter email" th:field="*{age}">
-            <label style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></label>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail12">Email </label>
-            <input type="text" class="form-control" id="exampleInputEmail12" aria-describedby="emailHelp"
-                   placeholder="Enter email" th:field="*{email}">
-            <label style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+                   placeholder="Enter email" th:field="*{category}">
+            <label style="color:red" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></label>
 
         </div>
 
