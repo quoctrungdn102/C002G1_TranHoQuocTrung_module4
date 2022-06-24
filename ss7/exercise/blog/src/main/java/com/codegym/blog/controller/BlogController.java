@@ -6,6 +6,7 @@ import com.codegym.blog.service.blog_service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +29,8 @@ public class BlogController {
 //    }
     @GetMapping(value = "/")
     public String home(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
-//        Sort sort = Sort.by("point").ascending().and(Sort.by("name_student"));
-        Page<Blog> list = iBlogService.display(PageRequest.of(page, 2));
+        Sort sort = Sort.by("name_blog").ascending();
+        Page<Blog> list = iBlogService.display(PageRequest.of(page, 2,sort));
         model.addAttribute("list", list);
         return "home";
     }

@@ -12,20 +12,25 @@ import java.util.List;
 public class CategoryService implements ICategoryService {
     @Autowired
     ICategoryRepository iCategoryRepository;
+
     @Override
     public void saveCategory(Category category) {
         iCategoryRepository.saveCategory(category.getNameCategory());
     }
-    public void save(Category category){
+
+    public void save(Category category) {
         iCategoryRepository.save(category);
     }
-    public List<Category>findAll(){
+
+    public List<Category> findAll() {
         return new ArrayList<>(iCategoryRepository.findAll());
     }
-    public void delete(Integer id){
+
+    public void delete(Integer id) {
         iCategoryRepository.deleteById(id);
     }
-    public Category findById(Integer id){
-       return iCategoryRepository.getById(id);
+
+    public Category findById(Integer id) {
+        return iCategoryRepository.getById(id);
     }
 }

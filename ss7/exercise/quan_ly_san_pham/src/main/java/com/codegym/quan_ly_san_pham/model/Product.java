@@ -4,21 +4,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Product implements Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProduct;
+    @NotBlank(message = "tên không được để trống")
+    @Pattern(regexp = "^\\w*$",message ="tên không được chứa kí tự đặc biệt" )
     private String nameProduct;
-    private double price;
+    @Pattern(regexp = "^[1-9]|[0-9]{2,}$",message ="lớn hơn không  " )
+    private String price;
+    @NotBlank(message = "không được để trống ")
     private String description;
+    @NotBlank(message = "không được để trống")
     private String producer;
 
     public Product() {
     }
 
-    public Product(int idProduct, String nameProduct, double price, String description, String producer) {
+    public Product(int idProduct, String nameProduct, String price, String description, String producer) {
         this.idProduct = idProduct;
         this.nameProduct = nameProduct;
         this.price = price;
@@ -26,7 +33,7 @@ public class Product implements Cloneable {
         this.producer = producer;
     }
 
-    public Product(String nameProduct, double price, String description, String producer) {
+    public Product(String nameProduct, String price, String description, String producer) {
         this.nameProduct = nameProduct;
         this.price = price;
         this.description = description;
@@ -53,11 +60,11 @@ public class Product implements Cloneable {
         this.nameProduct = nameProduct;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
