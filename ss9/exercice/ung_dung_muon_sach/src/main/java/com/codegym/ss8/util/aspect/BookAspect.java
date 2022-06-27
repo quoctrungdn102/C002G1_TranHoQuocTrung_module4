@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class BookEspect {
+public class BookAspect {
 //    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @After("execution(* com.codegym.ss8.controller.BookController.*(..))")
@@ -19,12 +19,15 @@ public class BookEspect {
         String nameMethod = joinPoint.getSignature().getName();
         System.out.println("method được gọi :" + nameMethod);
     }
+
     int visit = 0;
+
     @Pointcut(value = "within(com.codegym.ss8.controller.*)")
-    public void executeController(){}
+    public void executeController() {
+    }
 
     @Before(value = "executeController()")
-    public void beforeExecuteController(){
-        System.out.println("so lan truy cập : " + ++visit );
+    public void beforeExecuteController() {
+        System.out.println("so lan truy cập : " + ++visit);
     }
 }
