@@ -17,8 +17,8 @@
 </div>
 
 <div class="container">
-    <a th:href="@{/create}">
-        <button>Creat Blog</button>
+    <a th:href="@{/customer/create}">
+        <button>Creat Customer</button>
     </a>
     <a th:href="@{/category/display}">
         <button> Category</button>
@@ -26,26 +26,39 @@
     <table class="table table-hover">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Content</th>
-            <th scope="col">Category</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col">#</th>
+            <th scope="col">customerType</th>
+            <th scope="col">name</th>
+            <th scope="col">birthday</th>
+            <th scope="col">gender</th>
+            <th scope="col">idCard</th>
+            <th scope="col">phone</th>
+            <th scope="col">email</th>
+            <th scope="col">address</th>
+            <th scope="col">view</th>
+            <th scope="col">edit</th>
+            <th scope="col">delete</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="temp,status :${list}">
+        <tr th:each="temp,status :${listCustomer}">
             <td th:text="${status.count}"></td>
-            <td th:text="${temp.nameBlog}"></td>
+            <td th:text="${temp.customerType.nameCustomerType}"></td>
+            <td th:text="${temp.nameCustomer}"></td>
+            <td th:text="${temp.birthdayCustomer}"></td>
+            <td th:text="${temp.genderCustomer}"></td>
+            <td th:text="${temp.idCardCustomer}"></td>
+            <td th:text="${temp.phoneCustomer}"></td>
+            <td th:text="${temp.emailCustomer}"></td>
+            <td th:text="${temp.addressCustomer}"></td>
             <td>
-                <a th:href="@{/views/{id}(id = ${temp.idBlog})}"> Read</a>
+                <a th:href="@{/views/{id}(id = ${temp.idCustomer})}"> Read</a>
             </td>
-            <td th:text="${temp.category.nameCategory}"></td>
-            <td><a th:href="@{/edit/{id}(id = ${temp.idBlog})}">Edit</a></td>
+<!--            <td th:text="${temp.category.nameCategory}"></td>-->
+            <td><a th:href="@{/customer/edit/{id}(id = ${temp.idCustomer})}"><button>Edit</button></a></td>
             <!--            <td><a th:href="@{/delete/{id}(id = ${temp.idBlog})}">Delete</a></td>-->
             <td>
-                <button type="button" th:attr="onclick=|info(${temp.idBlog}, '${temp.nameBlog}')|" class=""
+                <button type="button" th:attr="onclick=|info(${temp.idCustomer}, '${temp.nameCustomer}')|" class=""
                         data-toggle="modal"
                         data-target="#exampleModal">
                     delete
@@ -54,16 +67,19 @@
         </tr>
         </tbody>
     </table>
-    <div style="justify-content: center">
-    <span>
-        <a th:if="${list.hasPrevious()}" th:href="@{/(page = ${list.number - 1})}">Previous</a>
+    <div>
+        <center>
+              <span>
+        <a th:if="${listCustomer.hasPrevious()}" th:href="@{/customer(page = ${listCustomer.number - 1})}">Previous</a>
     </span>
-        <span th:each="pageNo: ${#numbers.sequence(0,list.totalPages - 1)}">
-        <a th:href="@{/(page = ${pageNo})}" th:text="${pageNo}"></a>
+            <span th:each="pageNo: ${#numbers.sequence(0,listCustomer.totalPages - 1)}">
+        <a th:href="@{/customer(page = ${pageNo})}" th:text="${pageNo}"></a>
     </span>
-        <span>
-        <a th:if="${list.hasNext()}" th:href="@{/(page = ${list.number +1})}">Next</a>
+            <span>
+        <a th:if="${listCustomer.hasNext()}" th:href="@{/customer(page = ${listCustomer.number +1})}">Next</a>
     </span>
+        </center>
+
     </div>
 </div>
 
@@ -79,8 +95,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input id="idBlog" name="idBlog" type="text">
-                    You want delete Blog : <span id="name"></span>
+                    <input id="idBlog" name="idBlog" type="hidden">
+                    You want delete customer : <span id="name"></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

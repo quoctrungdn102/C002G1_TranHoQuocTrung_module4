@@ -9,22 +9,57 @@
 
 </head>
 <body>
-<div class="container">
-    <form th:action="@{/create}" method="post" th:object="${Blog}">
-        <div class="form-group">
-            <label for="exampleInputPassword2">Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword2" th:field="*{nameBlog}">
+<div style="background-image:url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/62371531.jpg?k=fb1828d64f739b526944dcb487699e4625ad8799986e0e4ef5c2c930dcf39b6c&o=&hp=1')">
+
+    <div class="container">
+
+        <div class="p-3 " style="background: whitesmoke; width: 50%;margin: 0px auto">
+            <form th:action="@{/customer/create}" method="post" th:object="${Customer}">
+                <h3 th:if="${Customer.idCustomer==null}">New Customer</h3>
+                <div th:if="${Customer.idCustomer!=null}" class="form-group">
+                    <h3>Edit customer</h3>
+                    <label for="exampleInputPassword2">Id</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" th:field="*{idCustomer}"
+                           readonly>
+                </div>
+                <select class="form-control" th:field="*{customerType}">
+                    <option th:each="temp: ${listCustomerType}" th:value="${temp.idCustomerType}"
+                            th:text="${temp.nameCustomerType}"></option>
+                </select>
+                <div class="form-group">
+                    <label for="exampleInputPassword3">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword3" th:field="*{nameCustomer}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword32">Name</label>
+                    <input type="date" class="form-control" id="exampleInputPassword32" th:field="*{birthdayCustomer}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword33">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword33" th:field="*{genderCustomer}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword34">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword34" th:field="*{idCardCustomer}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword35">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword35" th:field="*{phoneCustomer}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword36">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword36" th:field="*{emailCustomer}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword37">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword37" th:field="*{addressCustomer}">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword3">Content</label>
-            <input type="text" class="form-control" id="exampleInputPassword3" th:field="*{content}">
-        </div>
-        <select class="form-control" th:field="*{category}">
-            <option th:each="temp: ${categoryList}" th:value="${temp.idCategory}"
-                    th:text="${temp.nameCategory}"></option>
-        </select>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
 
 </body>
