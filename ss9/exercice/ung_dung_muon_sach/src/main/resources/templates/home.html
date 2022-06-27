@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/display}">
+    <button>display list book</button>
+</a><br>
+<form th:action="@{/returnBook}" method="get">
+    <label>Nhập mã sách để trả</label>
+    <input type="text" name="codeBook" placeholder="1234">
+    <button type="submit">Trả Sách</button>
+    <h5 th:text="${mes}"></h5>
+</form>
+
+</body>
+</html>
