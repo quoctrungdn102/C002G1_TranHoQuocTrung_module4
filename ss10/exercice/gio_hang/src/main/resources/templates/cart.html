@@ -8,21 +8,46 @@
 
 </head>
 <body>
-<div class="card" th:each="temp: ${cart.map}" style="width: 18rem;">
-    <img class="card-img-top" th:src="${temp.getKey().img}" alt="Card image cap">
-    <div class="card-body">
-        <h4 th:text="${temp.getKey().nameProduct}"></h4>
-        <h4>Giá:</h4> <h5 th:text="${temp.getKey.price}"></h5>
-        <h3>Số lượng:</h3>
-        <label><a th:href="@{/degree/{id}(id=${temp.getKey().idProduct})}">
-            <button>-</button>
-        </a></label>
-        <span class="card-text" th:text="${temp.getValue()}"></span>
-        <label><a th:href="@{/plus/{id}(id=${temp.getKey().idProduct})}">
-            <button>+</button>
-        </a></label>
-    </div>
+<div class="container">
+    <h3 style="text-align: center">Giỏ hàng của tôi</h3>
+    <div class="card" th:each="temp: ${cart.map}" style="width: 100%; font-size: 10px;background: whitesmoke">
+        <div style="display: flex">
+            <div style="float: left">
+                <img style="width: 20rem" class="card-img-top" th:src="${temp.getKey().img}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+                <h5 th:text="${temp.getKey().nameProduct}"></h5>
+                <h5>Giá:</h5> <h6 th:text="${temp.getKey.price}"></h6>
+                <h6>Số lượng:</h6>
+                <label><a th:href="@{/degree/{id}(id=${temp.getKey().idProduct})}">
+                    <button>-</button>
+                </a></label>
+                <span class="card-text" th:text="${temp.getValue()}"></span>
+                <label><a th:href="@{/plus/{id}(id=${temp.getKey().idProduct})}">
+                    <button>+</button>
+                </a></label>
+                <a th:href="@{/delete/{id}(id=${temp.getKey().idProduct})}">
+                    <button>xóa sản phẩm</button>
+                </a>
+            </div>
+        </div>
 
+
+    </div>
+    <div th:if="${cart.map.size==0}">
+        <a th:href="@{/}">
+            <button>tiếp tục mua sắm</button>
+        </a>
+    </div>
+    <h4 th:text="${mes}"></h4>
+
+    <div th:if="${cart.totalPrice()!=0}">
+        <h3>tổng cộng</h3>
+        <h4 th:text="${cart.totalPrice()}"></h4>
+        <a th:href="@{/pay}">
+            <button>Thanh toán</button>
+        </a>
+    </div>
 </div>
 
 </body>

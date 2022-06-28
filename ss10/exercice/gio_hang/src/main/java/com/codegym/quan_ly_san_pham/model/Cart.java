@@ -66,4 +66,17 @@ public class Cart {
             entry.setValue(entry.getValue() - 1);
         }
     }
+    public void deleteProduct(Product product){
+        Map.Entry<Product, Integer> entry = selectItemInCart(product);
+        map.remove(entry.getKey());
+    }
+    public Double totalPrice(){
+        Double total =0.0;
+        Integer value ;
+        for (Map.Entry<Product, Integer> tem :map.entrySet()) {
+            value = tem.getValue();
+            total+=(Double.parseDouble(tem.getKey().getPrice())*value);
+        }
+        return total;
+    }
 }
