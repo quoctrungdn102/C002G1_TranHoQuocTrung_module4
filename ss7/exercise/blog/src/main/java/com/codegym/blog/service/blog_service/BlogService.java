@@ -28,8 +28,9 @@ public class BlogService implements IBlogService {
     }
 
     public void create(Blog blog) {
-        iBlogRepository.create(blog.getNameBlog(), blog.getContent(),blog.getCategory().getIdCategory());
+        iBlogRepository.save(blog);
     }
+
 
     public Blog viewBlog(Integer id) {
         Blog blog = iBlogRepository.viewsBlog(id);
@@ -37,14 +38,15 @@ public class BlogService implements IBlogService {
     }
 
     public void edit(Blog blog) {
-        iBlogRepository.edit(blog.getNameBlog(), blog.getContent(), blog.getIdBlog(),blog.getCategory().getIdCategory());
+        iBlogRepository.edit(blog.getNameBlog(), blog.getContent(), blog.getIdBlog(), blog.getCategory().getIdCategory());
     }
 
     public void delete(Integer id) {
         iBlogRepository.delete(id);
     }
-    public List<Category> categoryList(){
-      return iCategoryRepository.findAll();
+
+    public List<Category> categoryList() {
+        return iCategoryRepository.findAll();
     }
 
 }

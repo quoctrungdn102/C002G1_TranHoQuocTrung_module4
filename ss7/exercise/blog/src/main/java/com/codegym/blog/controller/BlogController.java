@@ -30,7 +30,7 @@ public class BlogController {
     @GetMapping(value = "/")
     public String home(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
         Sort sort = Sort.by("name_blog").ascending();
-        Page<Blog> list = iBlogService.display(PageRequest.of(page, 2,sort));
+        Page<Blog> list = iBlogService.display(PageRequest.of(page, 2, sort));
         model.addAttribute("list", list);
         return "home";
     }

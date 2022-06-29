@@ -1,5 +1,7 @@
 package com.codegym.blog.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -14,6 +16,8 @@ public class Category {
     private String nameCategory;
     @OneToMany(mappedBy = "category")
     @OnDelete(action = OnDeleteAction.CASCADE)
+//    @JsonBackReference(value = "black_class")
+    @JsonIgnore
     private Set<Blog> blogs;
 
     public Category() {

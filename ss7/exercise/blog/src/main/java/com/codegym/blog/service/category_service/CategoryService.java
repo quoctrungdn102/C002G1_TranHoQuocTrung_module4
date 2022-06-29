@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService implements ICategoryService {
@@ -30,7 +31,7 @@ public class CategoryService implements ICategoryService {
         iCategoryRepository.deleteById(id);
     }
 
-    public Category findById(Integer id) {
-        return iCategoryRepository.getById(id);
+    public Optional<Category> findById(Integer id) {
+        return iCategoryRepository.findById(id);
     }
 }

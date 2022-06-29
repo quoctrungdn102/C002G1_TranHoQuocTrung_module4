@@ -19,9 +19,9 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
     @Query(value = "select * from Blog", nativeQuery = true)
     List<Blog> showList();
 
-    @Modifying
-    @Query(value = "insert into blog(name_blog,content,category_id_category) values(:name,:content,:idCategory) ", nativeQuery = true)
-    void create(@Param("name") String name, @Param("content") String content, @Param("idCategory") Integer idCategory);
+//    @Modifying
+//    @Query(value = "insert into blog(name_blog,content,category_id_category) values(:name,:content,:idCategory) ", nativeQuery = true)
+//    void create(@Param("name") String name, @Param("content") String content, @Param("idCategory") Integer idCategory);
 
     @Query(value = "select * from blog where id_blog = :id ", nativeQuery = true)
     Blog viewsBlog(@Param("id") Integer id);
