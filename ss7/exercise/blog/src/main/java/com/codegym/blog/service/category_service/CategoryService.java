@@ -34,4 +34,8 @@ public class CategoryService implements ICategoryService {
     public Optional<Category> findById(Integer id) {
         return iCategoryRepository.findById(id);
     }
+
+    public Category findIdCategory(String name) {
+        return iCategoryRepository.findAllByNameCategory(name);
+    }
 }

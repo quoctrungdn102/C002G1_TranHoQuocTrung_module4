@@ -16,5 +16,7 @@ public interface ICategoryService {
 
     public Optional<Category> findById(Integer id);
 
+    public Category findIdCategory(String name);
+
 
 }

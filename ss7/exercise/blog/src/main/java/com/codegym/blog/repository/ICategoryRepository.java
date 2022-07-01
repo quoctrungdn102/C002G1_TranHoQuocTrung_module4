@@ -13,4 +13,8 @@ public interface ICategoryRepository extends JpaRepository<Category, Integer> {
     @Modifying
     @Query(value = "insert into category(name_category) value(:name) ", nativeQuery = true)
     void saveCategory(@Param("name") String name);
+//    @Query(value = "insert into category(name_category) value(:name) ", nativeQuery = true)
+
+    Category findAllByNameCategory(String nameCategory);
+
 }

@@ -49,4 +49,8 @@ public class BlogService implements IBlogService {
         return iCategoryRepository.findAll();
     }
 
+    public List<Blog> searchBlog(String name) {
+        return iBlogRepository.blogByName('%' + name + '%');
+    }
+
 }

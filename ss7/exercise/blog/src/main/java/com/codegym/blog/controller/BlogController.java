@@ -21,16 +21,10 @@ public class BlogController {
     @Autowired
     IBlogService iBlogService;
 
-    //    @GetMapping("/")
-//    public String home(Model model) {
-//        List<Blog> list = iBlogService.display();
-//        model.addAttribute("list", list);
-//        return "home";
-//    }
     @GetMapping(value = "/")
     public String home(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
-        Sort sort = Sort.by("name_blog").ascending();
-        Page<Blog> list = iBlogService.display(PageRequest.of(page, 2, sort));
+//        Sort sort = Sort.by("name_blog").ascending();
+        Page<Blog> list = iBlogService.display(PageRequest.of(page, 2));
         model.addAttribute("list", list);
         return "home";
     }

@@ -6,15 +6,87 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#form-search").on("click", ".search", function () {
+                //lay du lieu
+                let name = $('#category').val();
+
+                // goi ajax
+                $.ajax({
+                    type: "GET",
+                    //tên API
+                    url: `res/search/${name}`,
+                    //xử lý khi thành công
+                    success: function (data) {
+                        alert("thanh công ")
+                        successHandler(data)
+
+                    }
+                });
+                //chặn sự kiện mặc định của thẻ
+                event.preventDefault();
+            });
+        })
+
+        function successHandler(data) {
+
+            let content = ''
+
+            for (let i = 0; i < data.length; i++) {
+                content += getData(data[i]);
+            }
+            document.getElementById('tbody').innerHTML = content;
+        }
+
+        function getData(data) {
+            return `
+<tr>
+                <td >${data.idBlog}</td>
+                <td >${data.nameBlog}</td>
+                <td >${data.content}</td>
+                <td >${data.category.nameCategory}</td>
+                <td><a class="editSmartphone" href="${data.idBlog}">Edit</a></td>
+                 <td><a class="deleteSmartphone" href="${data.idBlog}">Delete</a></td>
+
+                    </tr>
+`;
+        }
+
+        var size = 2;
+
+        function next() {
+            size++
+            $.ajax({
+                type: "GET",
+                //tên API
+                url: `res/next/${size}`,
+                //xử lý khi thành công
+                success: function (data) {
+                    // alert("thanh công ")
+                    successHandler(data)
+
+                }
+            });
+            //chặn sự kiện mặc định của thẻ
+            event.preventDefault();
+
+        }
+
+
+    </script>
 </head>
 <body>
+<h3 id="id"></h3>
 <div style="text-align: center">
     <h3>Search Song </h3>
-    <form th:action="@{/search}" method="get">
-        <input name="search" type="text">
-        <input type="submit" value="Search">
-    </form>
+    <div id="form-search">
+        <input id="category" type="text">
+        <input type="submit" class="search" value="Search">
+    </div>
 </div>
+
 
 <div class="container">
     <a th:href="@{/create}">
@@ -23,7 +95,7 @@
     <a th:href="@{/category/display}">
         <button> Category</button>
     </a>
-    <table class="table table-hover">
+    <table id="table" class="table table-hover">
         <thead class="thead-dark">
         <tr>
             <th scope="col">Id</th>
@@ -34,9 +106,9 @@
             <th scope="col">Delete</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tbody">
         <tr th:each="temp,status :${list}">
-            <td th:text="${status.count}"></td>
+            <td th:text="${temp.idBlog}"></td>
             <td th:text="${temp.nameBlog}"></td>
             <td>
                 <a th:href="@{/views/{id}(id = ${temp.idBlog})}"> Read</a>
@@ -65,6 +137,9 @@
         <a th:if="${list.hasNext()}" th:href="@{/(page = ${list.number +1})}">Next</a>
     </span>
     </div>
+    <div>
+        <button onclick="next()">Xêm thêm</button>
+    </div>
 </div>
 
 <form th:action="@{/delete}" method="get">
@@ -79,7 +154,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input id="idBlog" name="idBlog" type="text" >
+                    <input id="idBlog" name="idBlog" type="text">
                     You want delete Blog : <span id="name"></span>
                 </div>
                 <div class="modal-footer">
@@ -100,9 +175,9 @@
 </script>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--        crossorigin="anonymous"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>

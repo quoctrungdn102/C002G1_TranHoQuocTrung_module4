@@ -23,5 +23,7 @@ public interface IBlogService {
 
     public List<Category> categoryList();
 
+    public List<Blog> searchBlog(String name);
+
 
 }

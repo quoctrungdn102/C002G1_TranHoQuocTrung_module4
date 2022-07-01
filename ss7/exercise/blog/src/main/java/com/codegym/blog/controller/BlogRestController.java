@@ -5,14 +5,19 @@ import com.codegym.blog.model.Category;
 import com.codegym.blog.service.blog_service.IBlogService;
 import com.codegym.blog.service.category_service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
 
 @RestController
+@RequestMapping("/res")
 public class BlogRestController {
     @Autowired
     ICategoryService iCategoryService;
@@ -59,6 +64,26 @@ public class BlogRestController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(blogs, HttpStatus.OK);
+    }
+
+    //    @GetMapping("/search")
+//    public ResponseEntity<?> displayBlogToNameCategory(@RequestBody String name ) {
+//       Category category = iCategoryService.findIdCategory(name);
+//        if (category==null) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        return new ResponseEntity<>(category, HttpStatus.OK);
+//    }
+    @GetMapping("/search/{nameBlog}")
+    public ResponseEntity<?> displayBlogToNameCategory(@PathVariable("nameBlog") String name) {
+        List<Blog> blogs = iBlogService.searchBlog(name);
+        return new ResponseEntity<>(blogs, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/next/{size}")
+    public ResponseEntity<?> nextPage(@RequestParam(name = "page", defaultValue = "0") int page, @PathVariable("size") Integer size) {
+        Page<Blog> list = iBlogService.display(PageRequest.of(page, size));
+        return new ResponseEntity<>(list.getContent(), HttpStatus.OK);
     }
 
     @PostMapping("creatBlog")

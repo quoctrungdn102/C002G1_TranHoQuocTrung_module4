@@ -36,4 +36,7 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
     @Modifying
     @Query(value = "delete from blog where id_blog = :id ", nativeQuery = true)
     void delete(@Param("id") Integer id);
+
+    @Query(value = "select * from blog where name_blog like :name", nativeQuery = true)
+    List<Blog> blogByName(@Param("name") String name);
 }
