@@ -1,4 +1,4 @@
-package com.codegym.controller;
+package com.codegym.controller.customer;
 
 import com.codegym.model.Customer.Customer;
 import com.codegym.service.customer.ICustomerService;
@@ -17,8 +17,10 @@ public class CustomerController {
     @GetMapping("/")
     public String listCustomer(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
 //        Sort sort = Sort.by("name_blog").ascending();
-        model.addAttribute("listCustomer", iCustomerService.findAll(PageRequest.of(page, 2)));
-        return "customer/index";
+        model.addAttribute("listCustomerType", iCustomerService.findAllType());
+        model.addAttribute("listCustomer", iCustomerService.findAll(PageRequest.of(page, 7)));
+        model.addAttribute("customer",new Customer());
+        return "customer/home";
     }
 
     @GetMapping("/create")
@@ -46,5 +48,11 @@ public class CustomerController {
 
         return "customer/creat";
     }
+//    @GetMapping("/edit/{id}")
+//    public String findById(@PathVariable("id") Integer id,Model m) {
+//       m.addAttribute("Customer",iCustomerService.findById(id));
+//        m.addAttribute("listCustomerType", iCustomerService.findAllType());
+//        return "customer/creat";
+//    }
 
 }

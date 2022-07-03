@@ -1,5 +1,7 @@
 package com.codegym.model.Customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,6 +12,7 @@ public class CustomerType {
     private Integer idCustomerType;
     private String nameCustomerType;
     @OneToMany(mappedBy = "customerType")
+    @JsonIgnore
     private Set<Customer> customers;
 
     public CustomerType() {

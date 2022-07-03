@@ -16,5 +16,7 @@ public interface ICustomerService {
     public List<CustomerType> findAllType();
 
     public Customer findById(Integer id);
+    public List<Customer> d();
 
-}
+
+    }

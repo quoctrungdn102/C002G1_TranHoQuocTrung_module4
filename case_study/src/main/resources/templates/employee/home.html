@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<div style="text-align: center">
+    <h3>Search Song </h3>
+    <form th:action="@{/search}" method="get">
+        <input name="search" type="text">
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<div class="container">
+<!--    <a th:href="@{/customer/create}">-->
+<!--        <button>Creat Customer</button>-->
+<!--    </a>-->
+    <button id="buttonCreat" type="button"> Creat Employee</button>
+    <table id="table" class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">birthday</th>
+            <th scope="col">idCard</th>
+            <th scope="col">Salary</th>
+            <th scope="col">phone</th>
+            <th scope="col">email</th>
+            <th scope="col">address</th>
+            <th scope="col">Position</th>
+            <th scope="col">Education</th>
+            <th scope="col">Division</th>
+            <th scope="col">edit</th>
+            <th scope="col">delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="temp,status :${Employees}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${temp.nameEmployee}"></td>
+            <td th:text="${temp.birthdayEmployee}"></td>
+            <td th:text="${temp.idCardEmployee}"></td>
+            <td th:text="${temp.salaryEmployee}"></td>
+            <td th:text="${temp.phoneEmployee}"></td>
+            <td th:text="${temp.emailEmployee}"></td>
+            <td th:text="${temp.addressEmployee}"></td>
+            <td th:text="${temp.position.namePosition}"></td>
+            <td th:text="${temp.educationDegree.nameEducation}"></td>
+            <td th:text="${temp.division.nameDivision}"></td>
+            <!--            <td>-->
+            <!--                <a th:href="@{/views/{id}(id = ${temp.idCustomer})}"> Read</a>-->
+            <td><a class="edit" th:href="${temp.idEmployee}">
+                <button>Edit</button>
+            </a></td>
+            <td>
+                <button type="button" th:attr="onclick=|info(${temp.idEmployee}, '${temp.nameEmployee}')|" class=""
+                        data-toggle="modal"
+                        data-target="#exampleModal">
+                    delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+        <div>
+            <center>
+                  <span>
+            <a th:if="${Employees.hasPrevious()}" th:href="@{/employee(page = ${Employees.number - 1})}">Previous</a>
+        </span>
+                <span th:each="pageNo: ${#numbers.sequence(0,Employees.totalPages - 1)}">
+            <a th:href="@{/employee(page = ${pageNo})}" th:text="${pageNo}"></a>
+        </span>
+                <span>
+            <a th:if="${Employees.hasNext()}" th:href="@{/employee(page = ${Employees.number +1})}">Next</a>
+        </span>
+            </center>
+
+        </div>
+</div>
+<!--form delete-->
+<form th:action="@{/delete}" method="get">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input id="idBlog" name="idBlog" type="hidden">
+                    You want delete customer : <span id="name"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--form creat-->
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div id="getCode" class="modal-body">
+                <input type="text" id="idEmployee">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nameInput">Name</label>
+                        <input type="text" class="form-control" id="nameInput" placeholder="Name" >
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailInput">Email</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="Email" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Card">Card </label>
+                        <input type="text" class="form-control" id="Card" placeholder="1234 Main St" >
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Birthday">Birthday</label>
+                        <input type="date" class="form-control" id="Birthday"  value="21/10/1999" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Address </label>
+                    <input type="text" class="form-control" id="inputAddress2"
+                    >
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Phone">Phone</label>
+                        <input type="text" class="form-control" id="Phone" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Salary">Salary</label>
+                        <input type="text" class="form-control" id="Salary" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="position">Type</label>
+                        <select id="position" class="form-control">
+                            <option th:each="temp: ${Positions}" th:value="${temp.idPosition}"
+                                    th:text="${temp.namePosition}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Educations">Type</label>
+                        <select id="Educations" class="form-control">
+                            <option th:each="temp: ${Educations}" th:value="${temp.idEducation}"
+                                    th:text="${temp.nameEducation}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Divisions">Type</label>
+                        <select id="Divisions" class="form-control">
+                            <option th:each="temp: ${Divisions}" th:value="${temp.idDivision}"
+                                    th:text="${temp.nameDivision}"></option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button id="creat" type="button" class="btn btn-primary" data-dismiss="modal">Sign in</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="thongBao">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thông báo </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn đã thêm thành công </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js-employee.js"></script>
+
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--        crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

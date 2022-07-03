@@ -29,6 +29,9 @@ public class CustomerService implements ICustomerService {
         return new ArrayList<>(iCustomerTypeRepository.findAll());
     }
     public Customer findById(Integer id){
-        return iCustomerRepository.getById(id);
+        return iCustomerRepository.findById(id).get();
+    }
+    public List<Customer> d(){
+return iCustomerRepository.findAll();
     }
 }

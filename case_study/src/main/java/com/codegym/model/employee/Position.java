@@ -1,5 +1,7 @@
 package com.codegym.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,6 +12,7 @@ public class Position {
     private Integer idPosition;
     private String namePosition;
     @OneToMany(mappedBy = "position")
+    @JsonIgnore
     private Set<Employee> employees;
 
     public Position() {

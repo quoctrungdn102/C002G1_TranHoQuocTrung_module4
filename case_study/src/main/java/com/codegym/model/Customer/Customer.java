@@ -12,11 +12,12 @@ public class Customer {
     private String nameCustomer;
     @Column(columnDefinition = "date")
     private String birthdayCustomer;
-    private Boolean genderCustomer;
+    private Boolean genderCustomer ;
     private String idCardCustomer;
     private String phoneCustomer;
     private String emailCustomer;
     private String addressCustomer;
+
 
     public Customer() {
     }
