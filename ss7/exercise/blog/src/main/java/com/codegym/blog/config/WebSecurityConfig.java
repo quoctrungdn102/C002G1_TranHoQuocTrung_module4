@@ -1,6 +1,6 @@
-package com.codegym.demo.config;
+package com.codegym.blog.config;
 
-import com.codegym.demo.service.impl.UserDetailsServiceImpl;
+import com.codegym.blog.service.UserService.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // Submit URL của trang login
 //                .loginProcessingUrl("/j_spring_security") // Submit URL
 //                .loginPage("/login")//
-                .defaultSuccessUrl("/userInfo")// đăng nhập thành công -> call 1 request /userInfo
+                .defaultSuccessUrl("/ ")// đăng nhập thành công -> call 1 request /userInfo
                 .failureUrl("/login?error=true")// đăng nhập thất bại -> /login?error = true
 //                .usernameParameter("username")//
 //                .passwordParameter("password")

@@ -1,6 +1,7 @@
-package com.codegym.demo.repository;
+package com.codegym.blog.repository;
 
-import com.codegym.demo.model.AppUser;
+
+import com.codegym.blog.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
