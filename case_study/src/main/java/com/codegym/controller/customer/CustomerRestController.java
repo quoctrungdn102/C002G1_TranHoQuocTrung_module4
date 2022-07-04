@@ -34,7 +34,7 @@ public class CustomerRestController {
 //        Page<Customer> customers = iCustomerService.findAll(PageRequest.of(page, 2));
 //        List<Customer> customers1 = customers.getContent();
         iCustomerService.save(customer);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>( iCustomerService.save(customer),HttpStatus.OK);
     }
 
     @GetMapping("/findCustomer/{id}")

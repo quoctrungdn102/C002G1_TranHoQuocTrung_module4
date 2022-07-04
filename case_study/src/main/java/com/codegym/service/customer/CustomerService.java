@@ -22,8 +22,8 @@ public class CustomerService implements ICustomerService {
     public Page<Customer> findAll(Pageable pageable){
        return iCustomerRepository.findAll(pageable);
     }
-    public void save(Customer customer){
-        iCustomerRepository.save(customer);
+    public Customer save(Customer customer){
+       return iCustomerRepository.save(customer);
     }
     public List<CustomerType>findAllType(){
         return new ArrayList<>(iCustomerTypeRepository.findAll());

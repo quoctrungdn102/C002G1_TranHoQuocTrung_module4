@@ -11,17 +11,17 @@ public class Division {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDivision;
     private String nameDivision;
-    @OneToMany(mappedBy = "division")
-    @JsonIgnore
-    private Set<Employee> employees;
+//    @OneToMany(mappedBy = "division")
+//    @JsonIgnore
+//    private Set<Employee> employees;
 
     public Division() {
     }
 
-    public Division(Integer idDivision, String nameDivision, Set<Employee> employees) {
+    public Division(Integer idDivision, String nameDivision) {
         this.idDivision = idDivision;
         this.nameDivision = nameDivision;
-        this.employees = employees;
+//        this.employees = employees;
     }
 
     public Integer getIdDivision() {
@@ -40,11 +40,5 @@ public class Division {
         this.nameDivision = nameDivision;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
 }

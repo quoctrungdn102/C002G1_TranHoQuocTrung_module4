@@ -64,28 +64,29 @@ $(document).ready(function () {
 
     })
     $("#table").on("click", ".edit", function (event) {
+
         let a = $(this)
         let idEmployee = a.attr("href")
+        console.log(idEmployee)
         $.ajax({
             type: "GET",
             //tên API
             url: `/resEmployee/findEmployee/${idEmployee}`,
             //xử lý khi thành công
             success: function (data) {
+                console.log(data)
                 $("#exampleModal2").modal("show");
-                //
-                // document.getElementById("idEmployee").value = data.idEmployee;
-                // document.getElementById("nameInput").value = data.nameEmployee;
-                // document.getElementById("emailInput").value = data.emailEmployee;
-                // document.getElementById("Card").value = data.idCardEmployee;
-                // document.getElementById("Salary").value = data.salaryEmployee;
-                // document.getElementById("Birthday").value = data.birthdayEmployee;
-                // document.getElementById("inputAddress2").value = data.addressEmployee;
-                // document.getElementById("position").value = data.position.idPosition;
-                // document.getElementById("Phone").value = data.phoneEmployee;
-                // document.getElementById("Educations").value = data.educationDegree.idEducation;
-                // document.getElementById("Divisions").value = data.division.idDivision;
-
+                document.getElementById("idEmployee").value = data.idEmployee;
+                document.getElementById("nameInput").value = data.nameEmployee;
+                document.getElementById("emailInput").value = data.emailEmployee;
+                document.getElementById("Card").value = data.idCardEmployee;
+                document.getElementById("Salary").value = data.salaryEmployee;
+                document.getElementById("Birthday").value = data.birthdayEmployee;
+                document.getElementById("inputAddress2").value = data.addressEmployee;
+                document.getElementById("position").value = data.position.idPosition;
+                document.getElementById("Phone").value = data.phoneEmployee;
+                document.getElementById("Educations").value = data.educationDegree.idEducation;
+                document.getElementById("Divisions").value = data.division.idDivision;
             },
             error: function () {
                 console.log("lỗi")

@@ -11,17 +11,16 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPosition;
     private String namePosition;
-    @OneToMany(mappedBy = "position")
-    @JsonIgnore
-    private Set<Employee> employees;
+//    @OneToMany(mappedBy = "position")
+//    @JsonIgnore
+//    private Set<Employee> employees;
 
     public Position() {
     }
 
-    public Position(Integer idPosition, String namePosition, Set<Employee> positions) {
+    public Position(Integer idPosition, String namePosition) {
         this.idPosition = idPosition;
         this.namePosition = namePosition;
-        this.employees = positions;
     }
 
     public Integer getIdPosition() {
@@ -38,13 +37,5 @@ public class Position {
 
     public void setNamePosition(String namePosition) {
         this.namePosition = namePosition;
-    }
-
-    public Set<Employee> getPositions() {
-        return employees;
-    }
-
-    public void setPositions(Set<Employee> positions) {
-        this.employees = positions;
     }
 }

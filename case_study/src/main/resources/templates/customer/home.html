@@ -43,7 +43,7 @@
             <th scope="col">delete</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id = "body">
         <tr th:each="temp,status :${listCustomer}">
             <td th:text="${status.count}"></td>
             <td th:text="${temp.customerType.nameCustomerType}"></td>
@@ -57,16 +57,16 @@
 <!--            <td>-->
 <!--                <a th:href="@{/views/{id}(id = ${temp.idCustomer})}"> Read</a>-->
 <!--            </td>-->
-            <td><a th:href="@{/customer/edit/{id}(id = ${temp.idCustomer})}">
-                <button>Edit</button>
-            </a></td>
+<!--            <td><a th:href="@{/customer/edit/{id}(id = ${temp.idCustomer})}">-->
+<!--                <button>Edit</button>-->
+<!--            </a></td>-->
                 <td><a class="edit" th:href="${temp.IdCustomer}">
                 <button>Edit</button>
             </a></td>
             <td>
                 <button type="button" th:attr="onclick=|info(${temp.idCustomer}, '${temp.nameCustomer}')|" class=""
                         data-toggle="modal"
-                        data-target="#exampleModal">
+                        data-target="#exampleModal3">
                     delete
                 </button>
             </td>
@@ -90,7 +90,7 @@
 </div>
 <!--form delete-->
 <form th:action="@{/delete}" method="get">
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -115,13 +115,13 @@
 
 <!--form creat -->
 
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
                 <div id="getCode" class="modal-body">
-                    <input type="text" id="idCustomer">
+<!--                    <input type="text" id="idCustomer">-->
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -175,6 +175,67 @@
             </div>
         </div>
     </div>
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div id="getCode1" class="modal-body">
+                <input type="text" id="idCustomer">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nameInput1">Name</label>
+                        <input type="text" class="form-control" id="nameInput1" placeholder="Name" value="" >
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailInput1">Email</label>
+                        <input type="email" class="form-control" id="emailInput1" placeholder="Email" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Card1">Card </label>
+                        <input type="text" class="form-control" id="Card1" placeholder="1234 Main St" >
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Birthday1">Birthday</label>
+                        <input type="date" class="form-control" id="Birthday1"  value="21/10/1999" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress1">Address </label>
+                    <input type="text" class="form-control" id="inputAddress1"
+                    >
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="Phone1">Phone</label>
+                        <input type="text" class="form-control" id="Phone1" >
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Type1">Type</label>
+                        <select id="Type1" class="form-control">
+                            <option th:each="temp: ${listCustomerType}" th:value="${temp.idCustomerType}"
+                                    th:text="${temp.nameCustomerType}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="Gender1">Gender</label>
+                        <select id="Gender1" class="form-control">
+                            <option th:value="true">Nam</option>
+                            <option th:value="false">Nữ</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="creat1" type="button" class="btn btn-primary" data-dismiss="modal">Sign in</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

@@ -1,5 +1,9 @@
 package com.codegym.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,11 +18,17 @@ public class Employee {
     private String phoneEmployee;
     private String emailEmployee;
     private String addressEmployee;
+
     @ManyToOne(targetEntity = Position.class)
+//    @JsonIgnore
     private Position position;
+
     @ManyToOne(targetEntity = EducationDegree.class)
+//    @JsonIgnore
     private EducationDegree educationDegree;
+
     @ManyToOne(targetEntity = Division.class)
+//    @JsonIgnore
     private Division division;
 
     public Employee() {

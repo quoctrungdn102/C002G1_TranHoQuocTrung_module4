@@ -11,17 +11,17 @@ public class EducationDegree {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEducation;
     private String nameEducation;
-    @OneToMany(mappedBy = "educationDegree")
-    @JsonIgnore
-    Set<Employee> employees;
+//    @OneToMany(mappedBy = "educationDegree")
+//    @JsonIgnore
+//    private Set<Employee> employees;
 
     public EducationDegree() {
     }
 
-    public EducationDegree(Integer idEducation, String nameEducation, Set<Employee> employees) {
+    public EducationDegree(Integer idEducation, String nameEducation) {
         this.idEducation = idEducation;
         this.nameEducation = nameEducation;
-        this.employees = employees;
+
     }
 
     public Integer getIdEducation() {
@@ -40,11 +40,5 @@ public class EducationDegree {
         this.nameEducation = nameEducation;
     }
 
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
 
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
 }

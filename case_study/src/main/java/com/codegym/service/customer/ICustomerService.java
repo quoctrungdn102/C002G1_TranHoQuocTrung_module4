@@ -11,7 +11,7 @@ import java.util.List;
 public interface ICustomerService {
     public Page<Customer> findAll(Pageable pageable);
 
-    public void save(Customer customer);
+    public Customer save(Customer customer);
 
     public List<CustomerType> findAllType();
 
