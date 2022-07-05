@@ -21,7 +21,7 @@ public class BlogController {
     @Autowired
     IBlogService iBlogService;
 
-    @GetMapping(value = "/")
+    @GetMapping("/")
     public String home(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
 //        Sort sort = Sort.by("name_blog").ascending();
         Page<Blog> list = iBlogService.display(PageRequest.of(page, 2));
@@ -71,4 +71,5 @@ public class BlogController {
         iBlogService.delete(id);
         return "redirect:/";
     }
+
 }
