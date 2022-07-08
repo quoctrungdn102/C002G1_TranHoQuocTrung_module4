@@ -1,10 +1,8 @@
 package com.codegym.controller.customer;
 
-import com.codegym.model.Customer.Customer;
+import com.codegym.model.customer.Customer;
 import com.codegym.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

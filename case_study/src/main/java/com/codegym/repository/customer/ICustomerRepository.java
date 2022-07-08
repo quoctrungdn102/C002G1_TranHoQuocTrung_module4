@@ -1,6 +1,6 @@
 package com.codegym.repository.customer;
 
-import com.codegym.model.Customer.Customer;
+import com.codegym.model.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 

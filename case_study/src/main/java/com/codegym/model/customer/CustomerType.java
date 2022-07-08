@@ -1,5 +1,6 @@
-package com.codegym.model.Customer;
+package com.codegym.model.customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ public class CustomerType {
     private Integer idCustomerType;
     private String nameCustomerType;
     @OneToMany(mappedBy = "customerType")
-    @JsonIgnore
+    @JsonBackReference("customerType")
     private Set<Customer> customers;
 
     public CustomerType() {

@@ -24,5 +24,6 @@ public interface IEmployeeService {
 
     public Optional<Employee> findEmployeeById(Integer id);
 
+    public List<Employee> employeeList();
 
 }

@@ -6,7 +6,7 @@ function info(id, name) {
 
 $(document).ready(function () {
     $("#buttonCreat").click(function (event) {
-        $("#exampleModal2").modal("show");
+        $("#exampleModal").modal("show");
     });
     $("#creat").click(function (event) {
         let id = $('#idCustomer').val();
@@ -45,6 +45,8 @@ $(document).ready(function () {
             //xử lý khi thành công
             success: function () {
                 $("#thongBao").modal("show");
+                successHandler();
+
             }
         })
         //chặn sự kiện mặc định của thẻ
@@ -117,6 +119,7 @@ $(document).ready(function () {
             success: function (data) {
                 // console.log(data)
                 // $("#thongBao").modal("show");
+                $("#thongBao1").modal("show");
                 successHandler();
             }
         })
@@ -140,7 +143,6 @@ function successHandler() {
         //xử lý khi thành công
         success: function (data) {
             // console.log(data)
-            // $("#thongBao").modal("show");
             //chặn sự kiện mặc định của thẻ
             event.preventDefault();
 
@@ -161,7 +163,7 @@ function getCustomer(temp) {
             <td>${temp.customerType.nameCustomerType}</td>
             <td>${temp.nameCustomer}</td>
             <td>${temp.birthdayCustomer}</td>
-            <td>${temp.genderCustomer}</td>
+            <td>${temp.genderCustomer==true ? "nam":"nữ"}</td>
             <td>${temp.idCardCustomer}</td>
             <td>${temp.phoneCustomer}</td>
             <td>${temp.emailCustomer}</td>

@@ -30,6 +30,9 @@ public class EmployeeService implements IEmployeeService {
     public Page<Employee> findAll(Pageable pageable) {
         return iEmployeeRepository.findAll(pageable);
     }
+    public List<Employee> employeeList(){
+        return  iEmployeeRepository.findAll();
+    }
 
     public List<Position> findAllPosition() {
         return iPositionRepository.findAll();

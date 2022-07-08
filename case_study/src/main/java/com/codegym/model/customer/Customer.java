@@ -1,6 +1,10 @@
-package com.codegym.model.Customer;
+package com.codegym.model.customer;
+
+import com.codegym.model.contract.Contract;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Customer {
@@ -17,7 +21,30 @@ public class Customer {
     private String phoneCustomer;
     private String emailCustomer;
     private String addressCustomer;
+    @OneToMany(mappedBy = "customer")
+    @JsonBackReference("customer")
+    private Set<Contract> contractSet;
 
+    public Set<Contract> getContractSet() {
+        return contractSet;
+    }
+
+    public void setContractSet(Set<Contract> contractSet) {
+        this.contractSet = contractSet;
+    }
+
+    public Customer(Integer idCustomer, CustomerType customerType, String nameCustomer, String birthdayCustomer, Boolean genderCustomer, String idCardCustomer, String phoneCustomer, String emailCustomer, String addressCustomer, Set<Contract> contractSet) {
+        this.idCustomer = idCustomer;
+        this.customerType = customerType;
+        this.nameCustomer = nameCustomer;
+        this.birthdayCustomer = birthdayCustomer;
+        this.genderCustomer = genderCustomer;
+        this.idCardCustomer = idCardCustomer;
+        this.phoneCustomer = phoneCustomer;
+        this.emailCustomer = emailCustomer;
+        this.addressCustomer = addressCustomer;
+        this.contractSet = contractSet;
+    }
 
     public Customer() {
     }

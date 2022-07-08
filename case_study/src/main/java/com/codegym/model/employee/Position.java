@@ -1,5 +1,6 @@
 package com.codegym.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -11,14 +12,13 @@ public class Position {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idPosition;
     private String namePosition;
-//    @OneToMany(mappedBy = "position")
-//    @JsonIgnore
-//    private Set<Employee> employees;
-
+@OneToMany(mappedBy = "position")
+@JsonBackReference("position")
+private Set<Employee> positions;
     public Position() {
     }
 
-    public Position(Integer idPosition, String namePosition) {
+    public Position(Integer idPosition, String namePosition, Set<Employee> positions) {
         this.idPosition = idPosition;
         this.namePosition = namePosition;
     }
@@ -38,4 +38,5 @@ public class Position {
     public void setNamePosition(String namePosition) {
         this.namePosition = namePosition;
     }
+
 }

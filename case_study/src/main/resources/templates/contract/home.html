@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!--    <script src=""></script>-->
+</head>
+<body>
+<div style="text-align: center">
+    <!--    <h3>Search Song </h3>-->
+    <!--    <form th:action="@{/search}" method="get">-->
+    <!--        <input name="search" type="text">-->
+    <!--        <input type="submit" value="Search">-->
+    <!--    </form>-->
+</div>
+
+<div class="container">
+    <!--    <a th:href="@{/customer/create}">-->
+    <!--        <button>Creat Customer</button>-->
+    <!--    </a>-->
+    <!--    <button id="buttonCreat" type="button"> Creat Customer</button>-->
+    <!--    <a th:href="@{/category/display}">-->
+    <!--        <button> Category</button>-->
+    <!--    </a>-->
+    <div class="container">
+        <table id="table" class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Dịch vụ</th>
+                <th scope="col">Khách Hàng</th>
+                <th scope="col">Ngày bắt đầu</th>
+                <th scope="col">Ngày kết thúc</th>
+                <th scope="col">Tiền đặt cọc</th>
+                <th scope="col">Tổng tiền</th>
+                <th colspan="2" scope="col">Các dịch vụ đi kèm</th>
+
+            </tr>
+            </thead>
+            <tbody id="body">
+            <tr th:each="temp,status :${listContract}">
+                <td th:text="${status.count}"></td>
+                <td th:text="${temp.facility.nameFacility}"></td>
+                <td th:text="${temp.customer.nameCustomer}"></td>
+                <td th:text="${temp.starDay}"></td>
+                <td th:text="${temp.endDay}"></td>
+                <td th:text="${temp.deposit}"></td>
+                <td ></td>
+<!--                <td><button class="buttonAttachFacility" th:attr="onclick=|getIdContract(${temp.idContract})|"-->
+<!--                            data-toggle="modal"-->
+<!--                            data-target="#exampleModal121">-->
+<!--                    +-->
+<!--                </button></td>-->
+                <td><button class="buttonAttachFacility" th:href="${temp.idContract}">+</button></td>
+                <td>
+                    <button class="buttonAttachFacility1" th:href="${temp.idContract}">Danh sách các dịch vụ đi kèm</button>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <center>
+              <span>
+        <a th:if="${listContract.hasPrevious()}" th:href="@{/contract(page = ${listContract.number - 1})}">Previous</a>
+    </span>
+            <span th:each="pageNo: ${#numbers.sequence(0,listContract.totalPages - 1)}">
+        <a th:href="@{/contract(page = ${pageNo})}" th:text="${pageNo}"></a>
+    </span>
+            <span>
+        <a th:if="${listContract.hasNext()}" th:href="@{/contract(page = ${listContract.number +1})}">Next</a>
+    </span>
+        </center>
+
+    </div>
+</div>
+<!--modal attach facility-->
+<div class="modal fade bd-example-modal-lg" id="exampleModal121" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Attach Facility</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="idContract">
+                <table id="table1" class="table table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Facility</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">unit</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="temp,status :${listAttach}">
+                        <td  th:text="${status.count}"></td>
+                        <td th:text="${temp.nameAttachFacility}"></td>
+                        <td th:text="${temp.costAttachFacility}"></td>
+                        <td th:text="${temp.statusAttachFacility}"></td>
+                        <td th:text="${temp.uintAttachFacility}"></td>
+                        <td><input type="text" th:id="${'input' + temp.idAttachFacility}"></td>
+                        <td><button class="modalAttachFacility" th:href="${temp.idAttachFacility}">
+                        +</button></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal attach facility Using -->
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg " role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Attach Facility Using</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--                <input type="text" id="idContract">-->
+                <table id="table2" class="table table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Facility</th>
+<!--                        <th scope="col">Cost</th>-->
+<!--                        <th scope="col">Status</th>-->
+<!--                        <th scope="col">unit</th>-->
+                        <th scope="col">Số lượng</th>
+                    </tr>
+                    </thead>
+                    <tbody id="bodyModal">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal thông báo-->
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Thêm thành công
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+
+
+
+var idContract;
+    $(document).ready(function () {
+        $("#table").on("click",".buttonAttachFacility",function () {
+            let a = $(this)
+             idContract = a.attr("href")
+            $("#exampleModal121").modal("show")
+        })
+        $("#exampleModal121").on("click",".modalAttachFacility",function () {
+            let a = $(this)
+            let idAttachFacility = a.attr("href")
+            let input = document.getElementById("input"+idAttachFacility).value;
+            console.log(input)
+            console.log(idAttachFacility)
+            console.log(idContract)
+          let   newContractDetail = {
+                contract:{
+                    idContract:idContract,
+                },
+              attachFacility:{
+                  idAttachFacility:idAttachFacility,
+              },
+              quantity:input,
+
+            }
+            $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST",
+            data: JSON.stringify(newContractDetail),
+            //tên API
+            url: `/ContractDetailRestController/create`,
+            //xử lý khi thành công
+            success: function (data){
+                $("#exampleModalLong").modal("show")
+
+            }
+        })
+
+        })
+
+
+       $("#table").on("click",".buttonAttachFacility1",function () {
+           let a = $(this)
+           let idContract = a.attr("href")
+           console.log(idContract)
+           $.ajax({
+               headers: {
+                   'Accept': 'application/json',
+                   'Content-Type': 'application/json'
+               },
+               type: "GET",
+               // data: JSON.stringify(newContractDetail),
+               //tên API
+               url: `/ContractDetailRestController/AttachFacilityUsing/${idContract}`,
+               //xử lý khi thành công
+               success: function (data){
+                   console.log(data)
+                   let content = "";
+                   for (let i = 0; i < data.length; i++) {
+                       content += `<tr><td>${i+1}</td>` + getAttachFacility(data[i]);
+                   }
+                   document.getElementById('bodyModal').innerHTML = content;
+                   $("#exampleModal1").modal("show")
+
+               }
+           })
+
+
+       })
+
+
+
+
+    })
+    function getAttachFacility(temp) {
+        return `
+            <td>${temp.nameAttachFacility}</td>
+            <td>${temp.soLuong}</td>
+
+            </tr>`;
+    }
+</script>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</html>

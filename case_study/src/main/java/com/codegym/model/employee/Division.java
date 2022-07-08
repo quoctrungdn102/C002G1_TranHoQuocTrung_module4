@@ -1,5 +1,6 @@
 package com.codegym.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -11,17 +12,24 @@ public class Division {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDivision;
     private String nameDivision;
-//    @OneToMany(mappedBy = "division")
-//    @JsonIgnore
-//    private Set<Employee> employees;
-
+@OneToMany(mappedBy = "division")
+@JsonBackReference("division")
+private Set<Employee> employeeSet;
     public Division() {
     }
 
-    public Division(Integer idDivision, String nameDivision) {
+    public Set<Employee> getEmployeeSet() {
+        return employeeSet;
+    }
+
+    public void setEmployeeSet(Set<Employee> employeeSet) {
+        this.employeeSet = employeeSet;
+    }
+
+    public Division(Integer idDivision, String nameDivision, Set<Employee> employeeSet) {
         this.idDivision = idDivision;
         this.nameDivision = nameDivision;
-//        this.employees = employees;
+        this.employeeSet = employeeSet;
     }
 
     public Integer getIdDivision() {
@@ -39,6 +47,7 @@ public class Division {
     public void setNameDivision(String nameDivision) {
         this.nameDivision = nameDivision;
     }
-
-
 }
+
+
+

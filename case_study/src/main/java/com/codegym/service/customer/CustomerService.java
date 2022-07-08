@@ -1,7 +1,7 @@
 package com.codegym.service.customer;
 
-import com.codegym.model.Customer.Customer;
-import com.codegym.model.Customer.CustomerType;
+import com.codegym.model.customer.Customer;
+import com.codegym.model.customer.CustomerType;
 import com.codegym.repository.customer.ICustomerRepository;
 import com.codegym.repository.customer.ICustomerTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerService implements ICustomerService {
@@ -19,19 +18,24 @@ public class CustomerService implements ICustomerService {
     ICustomerRepository iCustomerRepository;
     @Autowired
     ICustomerTypeRepository iCustomerTypeRepository;
-    public Page<Customer> findAll(Pageable pageable){
-       return iCustomerRepository.findAll(pageable);
+
+    public Page<Customer> findAll(Pageable pageable) {
+        return iCustomerRepository.findAll(pageable);
     }
-    public Customer save(Customer customer){
-       return iCustomerRepository.save(customer);
+
+    public Customer save(Customer customer) {
+        return iCustomerRepository.save(customer);
     }
-    public List<CustomerType>findAllType(){
+
+    public List<CustomerType> findAllType() {
         return new ArrayList<>(iCustomerTypeRepository.findAll());
     }
-    public Customer findById(Integer id){
+
+    public Customer findById(Integer id) {
         return iCustomerRepository.findById(id).get();
     }
-    public List<Customer> d(){
-return iCustomerRepository.findAll();
+
+    public List<Customer> d() {
+        return iCustomerRepository.findAll();
     }
 }

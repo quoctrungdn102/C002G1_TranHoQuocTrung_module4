@@ -17,7 +17,7 @@ public class EmployeeController {
     IEmployeeService iEmployeeService;
     @GetMapping("")
     public String findAllEmployee(@RequestParam(name = "page",defaultValue = "0") Integer page, Model model){
-      model.addAttribute("Employees", iEmployeeService.findAll(PageRequest.of(page,2)));
+      model.addAttribute("Employees", iEmployeeService.findAll(PageRequest.of(page,5)));
       model.addAttribute("Divisions", iEmployeeService.findAllDivision());
       model.addAttribute("Educations", iEmployeeService.findAllEducation());
       model.addAttribute("Positions", iEmployeeService.findAllPosition());

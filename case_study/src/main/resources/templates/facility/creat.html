@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div style="background-image:url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/62371531.jpg?k=fb1828d64f739b526944dcb487699e4625ad8799986e0e4ef5c2c930dcf39b6c&o=&hp=1')">
+
+    <div class="container">
+
+        <div class="p-3 " style="background: whitesmoke; width: 50%;margin: 0px auto">
+            <form th:action="@{/facility/create}" method="post" th:object="${facility}">
+                <h3 th:if="${facility.idFacility==null}">New Customer</h3>
+                <div th:if="${facility.idFacility!=null}" class="form-group">
+                    <h3>Edit customer</h3>
+                    <label for="exampleInputPassword2">Id</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" th:field="*{idFacility}"
+                           readonly>
+                </div>
+
+                <div class="form-group">
+                     <label for="exampleInputPassword3">Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword3" th:field="*{nameFacility}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword32">Area</label>
+                    <input type="text" class="form-control" id="exampleInputPassword32" th:field="*{areaFacility}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword33">Cost</label>
+                    <input type="text" class="form-control" id="exampleInputPassword33" th:field="*{costFacility}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword34">People</label>
+                    <input type="text" class="form-control" id="exampleInputPassword34" th:field="*{maxPeopleFacility}">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword34">Facility Type</label>
+                    <select class="form-control" th:field="*{facilityType}">-->
+                        <option th:each="temp: ${facilityType}" th:value="${temp.idFacilityType}"
+                                th:text="${temp.nameFacilityType}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword34">Rent type</label>
+                    <select class="form-control" th:field="*{rentType}">-->
+                        <option th:each="temp: ${rentType}" th:value="${temp.idRentType}"
+                                th:text="${temp.nameRentType}"></option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputPassword35">Room</label>
+                    <input type="text" class="form-control" id="exampleInputPassword35" th:field="*{standardRoom}">
+                </div>
+                <div class="form-group" th:if="${facility.descriptionOther!=''}">
+                    <label for="exampleInputPassword36">Other</label>
+                    <input type="text" class="form-control" id="exampleInputPassword36" th:field="*{descriptionOther}">
+                </div>
+                <div class="form-group" th:if="${facility.poolArea!=''}">
+                    <label for="exampleInputPassword37">Area pool</label>
+                    <input type="text" class="form-control" id="exampleInputPassword37" th:field="*{poolArea}">
+                </div>
+                <div class="form-group" th:if="${facility.numberOfFloors!=null}">
+                    <label for="exampleInputPassword371">Floors</label>
+                    <input type="text" class="form-control" id="exampleInputPassword371" th:field="*{numberOfFloors}">
+                </div>
+                <div class="form-group" th:if="${facility.facilityFree!=''}">
+                    <label for="exampleInputPassword372">Free</label>
+                    <input type="text" class="form-control" id="exampleInputPassword372" th:field="*{facilityFree}">
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</html>

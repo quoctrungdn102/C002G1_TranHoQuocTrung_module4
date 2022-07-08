@@ -22,7 +22,7 @@
 <!--        <button>Creat Customer</button>-->
 <!--    </a>-->
     <button id="buttonCreat" type="button"> Creat Employee</button>
-    <table id="table" class="table table-hover">
+    <table id="table" class="table table-hover table-responsive ">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -40,7 +40,7 @@
             <th scope="col">delete</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="body">
         <tr th:each="temp,status :${Employees}">
             <td th:text="${status.count}"></td>
             <td th:text="${temp.nameEmployee}"></td>
@@ -116,8 +116,6 @@
         <div class="modal-content">
 
             <div id="getCode" class="modal-body">
-                <input type="text" id="idEmployee">
-
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nameInput">Name</label>
@@ -181,6 +179,87 @@
 
 
                 <button id="creat" type="button" class="btn btn-primary" data-dismiss="modal">Sign in</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--form edit-->
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div id="getCode1" class="modal-body">
+                <input type="text" id="idEmployee1">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="nameInput1">Name</label>
+                        <input type="text" class="form-control" id="nameInput1" placeholder="Name" >
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailInput1">Email</label>
+                        <input type="email" class="form-control" id="emailInput1" placeholder="Email" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Card1">Card </label>
+                        <input type="text" class="form-control" id="Card1" placeholder="1234 Main St" >
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Birthday1">Birthday</label>
+                        <input type="date" class="form-control" id="Birthday1"  value="21/10/1999" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress1">Address </label>
+                    <input type="text" class="form-control" id="inputAddress1"
+                    >
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Phone1">Phone</label>
+                        <input type="text" class="form-control" id="Phone1" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Salary1">Salary</label>
+                        <input type="text" class="form-control" id="Salary1" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="position1">Position</label>
+                        <select id="position1" class="form-control">
+                                <option th:each="temp: ${Positions}" th:value="${temp.idPosition}"
+                                    th:text="${temp.namePosition}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Educations1">Educations</label>
+                        <select id="Educations1" class="form-control">
+                            <option th:each="temp: ${Educations}" th:value="${temp.idEducation}"
+                                    th:text="${temp.nameEducation}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="Divisions1">Divisions</label>
+                        <select id="Divisions1" class="form-control">
+                            <option th:each="temp: ${Divisions}" th:value="${temp.idDivision}"
+                                    th:text="${temp.nameDivision}"></option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button id="edit" type="button" class="btn btn-primary" data-dismiss="modal">Sign in</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

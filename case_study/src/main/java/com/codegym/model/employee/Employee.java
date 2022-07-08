@@ -1,10 +1,10 @@
 package com.codegym.model.employee;
 
+import com.codegym.model.contract.Contract;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Employee {
@@ -20,16 +20,39 @@ public class Employee {
     private String addressEmployee;
 
     @ManyToOne(targetEntity = Position.class)
-//    @JsonIgnore
     private Position position;
 
     @ManyToOne(targetEntity = EducationDegree.class)
-//    @JsonIgnore
     private EducationDegree educationDegree;
 
     @ManyToOne(targetEntity = Division.class)
-//    @JsonIgnore
     private Division division;
+    @OneToMany(mappedBy = "employee")
+    @JsonBackReference("employee")
+    private Set<Contract> contractSet;
+
+    public Set<Contract> getContractSet() {
+        return contractSet;
+    }
+
+    public void setContractSet(Set<Contract> contractSet) {
+        this.contractSet = contractSet;
+    }
+
+    public Employee(Integer idEmployee, String nameEmployee, String birthdayEmployee, String idCardEmployee, String salaryEmployee, String phoneEmployee, String emailEmployee, String addressEmployee, Position position, EducationDegree educationDegree, Division division, Set<Contract> contractSet) {
+        this.idEmployee = idEmployee;
+        this.nameEmployee = nameEmployee;
+        this.birthdayEmployee = birthdayEmployee;
+        this.idCardEmployee = idCardEmployee;
+        this.salaryEmployee = salaryEmployee;
+        this.phoneEmployee = phoneEmployee;
+        this.emailEmployee = emailEmployee;
+        this.addressEmployee = addressEmployee;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.contractSet = contractSet;
+    }
 
     public Employee() {
     }

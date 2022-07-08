@@ -26,6 +26,7 @@
     <a th:href="@{/category/display}">
         <button> Category</button>
     </a>
+    <div class="container">
     <table id="table" class="table table-hover">
         <thead class="thead-dark">
         <tr>
@@ -49,7 +50,8 @@
             <td th:text="${temp.customerType.nameCustomerType}"></td>
             <td th:text="${temp.nameCustomer}"></td>
             <td th:text="${temp.birthdayCustomer}"></td>
-            <td th:text="${temp.genderCustomer}"></td>
+            <td th:if="${temp.genderCustomer==true}">Nam</td>
+            <td th:if="${temp.genderCustomer==false}" >Nữ</td>
             <td th:text="${temp.idCardCustomer}"></td>
             <td th:text="${temp.phoneCustomer}"></td>
             <td th:text="${temp.emailCustomer}"></td>
@@ -60,7 +62,7 @@
 <!--            <td><a th:href="@{/customer/edit/{id}(id = ${temp.idCustomer})}">-->
 <!--                <button>Edit</button>-->
 <!--            </a></td>-->
-                <td><a class="edit" th:href="${temp.IdCustomer}">
+                <td><a class="edit" th:href="${temp.idCustomer}">
                 <button>Edit</button>
             </a></td>
             <td>
@@ -73,6 +75,7 @@
         </tr>
         </tbody>
     </table>
+    </div>
     <div>
         <center>
               <span>
@@ -88,6 +91,7 @@
 
     </div>
 </div>
+
 <!--form delete-->
 <form th:action="@{/delete}" method="get">
     <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -176,6 +180,8 @@
         </div>
     </div>
 
+
+<!--form edit-->
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -238,7 +244,7 @@
 </div>
 
 
-
+<!--thông báo -->
 <div class="modal" tabindex="-1" role="dialog" id="thongBao">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -249,7 +255,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Bạn đã thêm thành công </p>
+                <p>Bạn đã thêm mới thành công </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="thongBao1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thông báo </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn đã sửa  thành công </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
