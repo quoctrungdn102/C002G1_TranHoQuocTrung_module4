@@ -1,20 +1,23 @@
 package com.codegym.quan_ly_san_pham.service;
 
 
-import com.codegym.quan_ly_san_pham.model.Product;
+import com.codegym.quan_ly_san_pham.model.NhaXe;
+import com.codegym.quan_ly_san_pham.model.VeXe;
 
 import java.util.List;
 
 public interface IProductService {
-    List<Product> displayProduct();
+    List<VeXe> displayProduct();
 
-    void creat(Product product);
+    void creat(VeXe veXe);
 
-    Product finProductById(Integer id);
+    VeXe finProductById(Integer id);
 
 
-    void deleteProduct(Product product);
+    void deleteProduct(VeXe veXe);
 
-    List<Product> findProductByName(String name);
+    List<VeXe> findProductByName(String name);
+
+    List<NhaXe> getListCategory();
 
 }

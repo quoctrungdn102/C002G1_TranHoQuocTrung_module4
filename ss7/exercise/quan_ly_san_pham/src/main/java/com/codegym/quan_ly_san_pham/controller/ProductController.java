@@ -1,16 +1,14 @@
 package com.codegym.quan_ly_san_pham.controller;
 
 
-import com.codegym.quan_ly_san_pham.model.Product;
+import com.codegym.quan_ly_san_pham.model.NhaXe;
+import com.codegym.quan_ly_san_pham.model.VeXe;
 import com.codegym.quan_ly_san_pham.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -23,8 +21,8 @@ public class ProductController {
 
     @GetMapping("/")
     public String displayProduct(Model model) {
-        List<Product> productList = iProductService.displayProduct();
-        model.addAttribute("listProduct", productList);
+        List<VeXe> veXeList = iProductService.displayProduct();
+        model.addAttribute("listProduct", veXeList);
         return "views/home";
     }
 
@@ -36,39 +34,43 @@ public class ProductController {
 
     @GetMapping("/creat")
     public String formCreatProduct(Model model) {
-        model.addAttribute("product", new Product());
+        model.addAttribute("product", new VeXe());
         return "views/creat";
     }
 
     @PostMapping("/creat")
-    public String creatProduct(@Valid Product product, BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
+    public String creatProduct(@Valid VeXe veXe, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "views/creat";
         }
-        iProductService.creat(product);
+        iProductService.creat(veXe);
         return "redirect:/";
     }
 
     @GetMapping("/view/{id}")
     public String viewProduct(@PathVariable("id") int id, Model model) {
-        Product product = iProductService.finProductById(id);
-        model.addAttribute("product", product);
+        VeXe veXe = iProductService.finProductById(id);
+        model.addAttribute("product", veXe);
         return "views/view";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
-        Product product = iProductService.finProductById(id);
-        iProductService.deleteProduct(product);
+        VeXe veXe = iProductService.finProductById(id);
+        iProductService.deleteProduct(veXe);
         redirectAttributes.addFlashAttribute("mes", "Delete successfully");
         return "redirect:/";
     }
 
     @GetMapping("/search")
     public String searchProduct(@RequestParam("search") String name, Model model) {
-        List<Product> list = iProductService.findProductByName(name);
+        List<VeXe> list = iProductService.findProductByName(name);
         model.addAttribute("listProduct", list);
         return "views/home";
+    }
+    @GetMapping("/listCategory")
+    public void listCategory(Model model){
+       List<NhaXe> nhaXeList =   iProductService.getListCategory();
     }
 
 }
